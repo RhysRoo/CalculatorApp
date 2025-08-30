@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var display = "0"
-    @State private var first = ""
-    @State private var second = ""
+    @State private var first: Int = 0
+    @State private var second: Int = 0
+    @State private var op = ""
     
     
     var body: some View {
@@ -68,11 +69,17 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     
                     Button("/") {
-                        
+                        if let firstnums = Int(display){
+                            first = firstnums
+                            display = "0"
+                            op = "/"
+                        } else {
+                            display = "Error"
+                        }
                     }
                     .font(.title)
                     .frame(width: 75, height: 50)
-                    .background(.gray)
+                    .background(Color(white: 0.31))
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, style: .init(lineWidth: 2)))
                     .foregroundStyle(.white)
@@ -123,11 +130,17 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     
                     Button("*") {
-                        
+                        if let firstNums = Int(display){
+                            first = firstNums
+                            display = "0"
+                            op = "*"
+                        } else {
+                            display = "Error"
+                        }
                     }
                     .font(.title)
                     .frame(width: 75, height: 50)
-                    .background(.gray)
+                    .background(Color(white: 0.31))
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                     .foregroundStyle(.white)
@@ -180,11 +193,17 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     
                     Button("-") {
-                        
+                        if let firstNums = Int(display){
+                            first = firstNums
+                            display = "0"
+                            op = "-"
+                        } else {
+                            display = "Error"
+                        }
                     }
                     .font(.title)
                     .frame(width: 75, height: 50)
-                    .background(.gray)
+                    .background(Color(white: 0.31))
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                     .foregroundStyle(.white)
@@ -221,21 +240,27 @@ struct ContentView: View {
                     .foregroundStyle(.white)
                     
                     Button(".") {
-                        
+                        display = "Not Implemented Yet!"
                     }
                     .font(.title)
                     .frame(width: 75, height: 50)
-                    .background(.gray)
+                    .background(Color(white: 0.31))
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                     .foregroundStyle(.white)
                     
                     Button("+") {
-                        
+                        if let firstNums = Int(display){
+                            first = firstNums
+                            display = "0"
+                            op = "+"
+                        } else {
+                            display = "Error"
+                        }
                     }
                     .font(.title)
                     .frame(width: 75, height: 50)
-                    .background(.gray)
+                    .background(Color(white: 0.31))
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 2))
                     .foregroundStyle(.white)
@@ -243,7 +268,24 @@ struct ContentView: View {
                 
                 HStack{
                     Button("="){
-                        
+                        if let secondNums = Int(display) {
+                            second = secondNums
+                            
+                            if op == "+"{
+                                display = String(first + second)
+                            } else if op == "-"{
+                                display = String(first - second)
+                            } else if op == "*"{
+                                display = String(first * second)
+                            } else if op == "/"{
+                                display = String(first / second)
+                            } else {
+                                display = "error"
+                            }
+                        } else {
+                            display = "Error"
+                        }
+                       
                     }
                     .font(.largeTitle)
                     .frame(width: 160, height: 50)
@@ -255,9 +297,6 @@ struct ContentView: View {
                 .padding(.bottom, 15)
                 .padding(10)
                 
-                
-                
-                
             }
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 10))
             .background(.red)
@@ -266,14 +305,7 @@ struct ContentView: View {
             
             
         }
-            
-            
-                
         }
-        
-        
-       
-        
 
     }
 
