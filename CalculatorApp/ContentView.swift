@@ -16,6 +16,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            
+            Text("Basic Mode")
+                .padding(.bottom, 1)
+            
             VStack {
                 Text("\(display)")
                     .font(.largeTitle)
@@ -302,6 +306,40 @@ struct ContentView: View {
             .background(.red)
             .cornerRadius(20)
             
+            Divider()
+                .padding(.top, 5)
+            
+//            Text("Advanced Mode (coming soon)")
+//
+//            HStack{
+//                Button("^2"){
+//                    
+//                }
+//                .frame(width: 75, height: 50)
+//                .font(.largeTitle)
+//                .background(Color(white: 0.31))
+//                .cornerRadius(20)
+//                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, style: .init(lineWidth: 2)))
+//                .foregroundStyle(.white)
+//                
+//                Button("%"){
+//                    
+//                }
+//                .frame(width: 75, height: 50)
+//                .font(.largeTitle)
+//                .background(Color(white: 0.31))
+//                .cornerRadius(20)
+//                .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, style: .init(lineWidth: 2)))
+//                .foregroundStyle(.white)
+//            }
+//            .padding(10)
+//            .overlay(RoundedRectangle(cornerRadius: 20).stroke(.black, lineWidth: 10))
+//            .background(.red)
+//            .cornerRadius(20)
+            
+            
+            
+            Spacer()
             
             
         }
